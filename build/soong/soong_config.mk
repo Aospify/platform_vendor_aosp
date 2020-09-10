@@ -14,6 +14,7 @@ $(call add_json_bool, Should_wait_for_qsee, $(filter true,$(TARGET_KEYMASTER_SKI
 $(call add_json_val_default, Bootloader_message_offset, $(BOOTLOADER_MESSAGE_OFFSET), 0)
 $(call add_json_str_omitempty, Target_process_sdk_version_override, $(TARGET_PROCESS_SDK_VERSION_OVERRIDE))
 $(call add_json_str,  Target_shim_libs,                      $(TARGET_LD_SHIM_LIBS))
+$(call add_json_str_omitempty, Target_specific_header_path, $(TARGET_SPECIFIC_HEADER_PATH))
 $(call add_json_str_omitempty, Additional_gralloc_10_usage_bits, $(TARGET_ADDITIONAL_GRALLOC_10_USAGE_BITS))
 $(call add_json_str_omitempty, Target_surfaceflinger_fod_lib, $(TARGET_SURFACEFLINGER_FOD_LIB))
 $(call add_json_bool, Uses_generic_camera_parameter_library, $(if $(TARGET_SPECIFIC_CAMERA_PARAMETER_LIBRARY),,true))
