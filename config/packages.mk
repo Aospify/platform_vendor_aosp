@@ -1,4 +1,4 @@
-# Copyright (C) 2019 RevengeOS
+# Copyright (C) 2020 Aospify
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -23,20 +23,6 @@ PRODUCT_PACKAGES += \
     messaging \
     Stk \
     Snap
-
-# RevengeOS packages
-PRODUCT_PACKAGES += \
-    RetroMusicPlayer \
-    RevengeOSCalculator \
-    OmniJaws \
-    WeatherIcons \
-    ViaBrowser
-
-# Updates
-ifeq ($(REVENGEOS_BUILDTYPE),OFFICIAL)
-PRODUCT_PACKAGES += \
-   Updates
-endif
 
 # Screenshot
 PRODUCT_PACKAGES += \

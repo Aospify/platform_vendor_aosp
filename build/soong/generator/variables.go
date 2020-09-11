@@ -6,12 +6,12 @@ import (
 	"android/soong/android"
 )
 
-func revengeosExpandVariables(ctx android.ModuleContext, in string) string {
-	revengeosVars := ctx.Config().VendorConfig("revengeosVarsPlugin")
+func aospExpandVariables(ctx android.ModuleContext, in string) string {
+	aospVars := ctx.Config().VendorConfig("aospVarsPlugin")
 
 	out, err := android.Expand(in, func(name string) (string, error) {
-		if revengeosVars.IsSet(name) {
-			return revengeosVars.String(name), nil
+		if aospVars.IsSet(name) {
+			return aospVars.String(name), nil
 		}
 		// This variable is not for us, restore what the original
 		// variable string will have looked like for an Expand

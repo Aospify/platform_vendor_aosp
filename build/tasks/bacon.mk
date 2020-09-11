@@ -1,5 +1,4 @@
-# Copyright (C) 2017 Unlegacy-Android
-# Copyright (C) 2017 The LineageOS Project
+# Copyright (C) 2020 Aospify
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -15,17 +14,17 @@
 
 # -----------------------------------------------------------------
 
-# RevengeOS package
-REVENGEOS_TARGET_PACKAGE := $(PRODUCT_OUT)/RevengeOS-$(REVENGEOS_BUILD_ID).zip
+# Aopsify package
+AOSPIFY_TARGET_PACKAGE := $(PRODUCT_OUT)/Aospify-$(AOSPIFY_BUILD_ID).zip
 
 .PHONY: otapackage bacon
 otapackage: $(INTERNAL_OTA_PACKAGE_TARGET)
 bacon: otapackage
-	$(hide) ln -f $(INTERNAL_OTA_PACKAGE_TARGET) $(REVENGEOS_TARGET_PACKAGE)
-	$(hide) $(MD5SUM) $(REVENGEOS_TARGET_PACKAGE) | sed "s|$(PRODUCT_OUT)/||" > $(REVENGEOS_TARGET_PACKAGE).md5sum
+	$(hide) ln -f $(INTERNAL_OTA_PACKAGE_TARGET) $(AOSPIFY_TARGET_PACKAGE)
+	$(hide) $(MD5SUM) $(AOSPIFY_TARGET_PACKAGE) | sed "s|$(PRODUCT_OUT)/||" > $(AOSPIFY_TARGET_PACKAGE).md5sum
 	@echo "done"
 	@echo "===============================-Package complete-============================================================="
-	@echo "Zip: $(REVENGEOS_TARGET_PACKAGE)"
-	@echo "MD5: `cat $(REVENGEOS_TARGET_PACKAGE).md5sum | awk '{print $$1}' `"
-	@echo "Size: `du -sh $(REVENGEOS_TARGET_PACKAGE) | awk '{print $$1}' `"
+	@echo "Zip: $(AOSPIFY_TARGET_PACKAGE)"
+	@echo "MD5: `cat $(AOSPIFY_TARGET_PACKAGE).md5sum | awk '{print $$1}' `"
+	@echo "Size: `du -sh $(AOSPIFY_TARGET_PACKAGE) | awk '{print $$1}' `"
 @echo "=============================================================================================================="
