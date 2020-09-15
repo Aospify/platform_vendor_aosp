@@ -97,8 +97,23 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     media.recorder.show_manufacturer_and_model=true
 
-PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/aosp/overlay
+PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += \
+	vendor/aosp/overlay \
+	vendor/aosp/overlay/lawnchair
+	
 DEVICE_PACKAGE_OVERLAYS += vendor/aosp/overlay/common
+
+# Lawnchair
+ifeq ($(TARGET_EXCLUDE_LAWNCHAIR),)
+PRODUCT_PACKAGE_OVERLAYS += vendor/aosp/overlay/lawnchair
+
+PRODUCT_PACKAGES += \
+    Lawnchair
+
+PRODUCT_COPY_FILES += \
+    vendor/aosp/prebuilt/common/etc/permissions/privapp-permissions-lawnchair.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-lawnchair.xml \
+    vendor/aosp/prebuilt/common/etc/permissions/lawnchair-hiddenapi-package-whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/lawnchair-hiddenapi-package-whitelist.xml
+endif
 
 # Dex preopt
 PRODUCT_DEXPREOPT_SPEED_APPS += \
