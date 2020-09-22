@@ -13,6 +13,7 @@
 # limitations under the License.
 
 include vendor/aosp/config/version.mk
+include vendor/aosp/config/fingerprint.mk
 
 #PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/aosp/overlay
 #DEVICE_PACKAGE_OVERLAYS += \
